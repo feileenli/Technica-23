@@ -1,20 +1,22 @@
-fetch('https://api.umd.io/v1/courses')
+fetch('https://api.umd.io/v1/courses/list')
     .then(response => response.json())
     .then(data => {
-        // Process the data and insert it into the HTML
-        //console.log("DATAAAA:", data[0]);
-        displayData(data);
-    })
-    .catch(error => console.error('Error:', error));
+        // Filter the courses with the "CMSC" department 
+        const cmscCourses = data.filter(course => course.course_id.includes('CMSC'));
 
-    function displayData(data) {
-        const dataContainer = document.getElementById('data-container');
-        // Create HTML elements and insert data
-        data.forEach(item => {
-            const itemElement = document.createElement('div');
-            itemElement.textContent = "*"; // Adjust this to match your data structure
-            dataContainer.appendChild(itemElement);
-            console.log("course id:", data);
+        //display the names of CMSC courses
+        const cmscCoursesList = document.getElementById('cmscCourses');
+        cmscCourses.forEach(course => {
+            const listItem = document.createElement('li');
+            listItem.textContent = course.course_id;
+            cmscCoursesList.appendChild(listItem);
         });
-    }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('cmscCourses').textContent = 'Error fetching data';
+    });
+
+
+
     

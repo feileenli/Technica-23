@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="course_styles.css" />
+</head>
+<body>
+    <h1>Course Details</h1>
+    <div id="courseDetails">
+        <h2 id="courseName"></h2>
+        <p id="courseDescription"></p>
+        <p id="professor"></p>
+        <p id="averageGrade"></p>
+    </div>
+
+    <script>
+        class Course {
+            constructor() {
+                this.courseName = '';
+                this.courseDescription = '';
+                this.professor = '';
+                this.averageGrade = '';
+            }
+
+            async fetchCourseData(courseCode) {
+                try {
+                    const response = await fetch(`https://api.umd.io/v1/courses/${courseCode}`);
+                    const data = await response.json();
+                    this.courseName = data.name;
+                    this.courseDescription = data.description;
+                    this.professor = data.professors[0]; // Assuming the first professor is taken
+                    this.averageGrade = data.average_gpa;
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+        }
+
+        const courseDetails = new Course();
+
+        document.getElementById('searchButton').addEventListener('click', () => {
+            const courseCode = document.getElementById('searchInput').value;
+            courseDetails.fetchCourseData(courseCode);
+
+            setTimeout(() => {
+                // Update the HTML with course details
+                document.getElementById('courseName').textContent = `Course Name: ${courseDetails.courseName}`;
+                document.getElementById('courseDescription').textContent = `Description: ${courseDetails.courseDescription}`;
+                document.getElementById('professor').textContent = `Professor: ${courseDetails.professor}`;
+                document.getElementById('averageGrade').textContent = `Average Grade: ${courseDetails.averageGrade}`;
+            }, 1000); // Delay for API request
+        });
+    </script>
+</body>
+</html>
