@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technica '23 Fei</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <nav>
+    <!-- Navigation Content -->
+    <ul class="nav-parent">
+        <li>
+            <div class="nav-item" onclick="toggleDropdown('default')">
+                Main Menu
+            </div>
+          </li>
+        <li>
+            <div class="nav-item" onclick="toggleDropdown('AAPS380')">
+                AAPS380
+            </div>
+            <ul class="nav-child" id="AAPS380">
+              <li class="nav-item" onclick="showPage('AAPS380','page1')">
+                Page 1
+              </li>
+              <li class="nav-item" onclick="showPage('AAPS380','page2')">
+                Page 2
+              </li>
+              <li class="nav-item" onclick="showPage('AAPS380','page3')">
+                Page 3
+              </li>
+            </ul>
+        </li>
+      </li>
+      <li>
+        <div class="nav-item" onclick="toggleDropdown('folder4')">
+            AASP100
+        </div>
+        <ul class="nav-child" id="folder4">
+          <li class="nav-item" onclick="showPage('folder4','page1')">
+            Page 1
+          </li>
+          <li class="nav-item" onclick="showPage('folder4','page2')">
+            Page 2
+          </li>
+          <li class="nav-item" onclick="showPage('folder4','page3')">
+            Page 3
+          </li>
+        </ul>
+      </li>
+      <li>
+        <div class="nav-item" onclick="toggleDropdown('folder5')">
+            AASP101
+        </div>
+        <ul class="nav-child" id="folder5">
+          <li class="nav-item" onclick="showPage('folder5','page1')">
+            Page 1
+          </li>
+          <li class="nav-item" onclick="showPage('folder5','page2')">
+            Page 2
+          </li>
+          <li class="nav-item" onclick="showPage('folder5','page3')">
+            Page 3
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Main Content Area -->
+    
+
+    <div id="AAPS380-0" class="content-page">
+      <h2>Fearless First: Negotiating the Hidden Curriculum in Higher Education and Other Societal Institutions</h2>
+      <p>This course examines the research and theory about first-generation college students 
+        and complicates the discourse around identity and experiences as a first-generation college 
+        student and the efforts made to expand access to higher education and major U. S. institutions. 
+        Moreover, the course will encourage students to use their strengths and cultural wealth, assets and values, 
+        along with introducing and expanding known cultural and social capital to successfully negotiate these institutional 
+        environments. Students who identify as first-generation are strongly encouraged to enroll.</p>
+
+        <h1>Upload PDF Files</h1>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="pdfFile">Select a PDF File:</label>
+            <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" required>
+            <br>
+            <input type="submit" value="Upload PDF">
+        </form>
+
+        <h1>PDF Example</h1>
+        <embed src="CMSC216.pdf" type="application/pdf" width="100%" height="600px">
+
+    </div>
+    <div id="folder4-0" class="content-page">
+      <h2>Welcome to Our Website - folder 4</h2>
+      <p>This is the default content for the main page of folder 4.</p>
+    </div>
+    <div id="folder5-0" class="content-page">
+      <h2>Folder 5 default page</h2>
+      <p>This is the default content for the main page of folder 5</p>
+    </div>
+    <div id="folder6-0" class="content-page">
+      <h2>Welcome to Our Website - folder 6</h2>
+      <p>This is the default content for the main page of folder 6.</p>
+    </div>
+    <div id="folder7-0" class="content-page">
+      <h2>Welcome to Our Website - folder 7</h2>
+      <p>This is the default content for the main page of folder 7.</p>
+    </div>
+    <div id="folder8-0" class="content-page">
+      <h2>Welcome to Our Website - folder 8</h2>
+      <p>This is the default content for the main page of folder 8.</p>
+    </div>
+    
+    <!-- Pages for Folder 3-->
+    <div id="AAPS380-page1" class="content-page">
+      <h2>AAPS380 - Page 1</h2>
+      <p>This is the content for Page 1 from Folder 3.</p>
+    </div>
+    <div id="AAPS380-page2" class="content-page">
+      <h2>Folder 3 - Page 2</h2>
+      <p>This is the content for Page 2 of Folder 3.</p>
+    </div>
+    <!-- Pages for Folder 4-->
+    <div id="folder4-page1" class="content-page">
+      <h2>Folder4 - Page 1</h2>
+      <p>This is the content for Page 1 from Folder 3.</p>
+    </div>
+    <div id="folder4-page2" class="content-page">
+      <h2>Folder 4 - Page 2</h2>
+      <p>This is the content for Page 2 of Folder 3.</p>
+    </div>
+    <!-- Pages for Folder 5-->
+    <div id="folder5-page1" class="content-page">
+      <h2>Folder5 - Page 1</h2>
+      <p>This is the content for Page 1 from Folder 5.</p>
+    </div>
+    <div id="folder5-page2" class="content-page">
+      <h2>Folder 5 - Page 2</h2>
+      <p>This is the content for Page 2 of Folder 5.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="fetch.js"></script>
+
+
+</body>
+
+</html>
